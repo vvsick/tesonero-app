@@ -1,0 +1,53 @@
+@import 'variables';
+
+@mixin button {
+    border: none;
+    border-radius: 8px;
+    background-color: $primaryGreen;
+    color: #FFF;
+    box-shadow: 0 8px 16px rgba(0, 195, 104, 0.4);
+    cursor: pointer;
+}
+
+@mixin layer ($width, $height, $top, $deg) {
+    position: absolute;
+    width: $width;
+    height: $height;
+    top: $top;
+    overflow: hidden;
+    background-size: cover;
+    background-image: url(../assets/layer.png);
+    filter: blur(5px);
+    transform: rotate($deg);
+}
+
+@mixin divider ($width, $margin) {
+    width: $width;
+    height: 4px;
+    margin: $margin auto 0;
+    background-color: $primaryGreen;
+}
+
+@mixin transition {
+    transition: 500ms;
+    transition-timing-function: ease-in-out;
+}
+
+@mixin header ($margin, $width, $size, $weight, $lineHeight, $align) {
+    margin: $margin;
+    max-width: $width;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $lineHeight;
+    color: $textColor;
+    text-align: $align;
+}
+
+@mixin text ($size, $weight, $height) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+    text-align: left;
+    vertical-align: top;
+    color: $textColor;
+}

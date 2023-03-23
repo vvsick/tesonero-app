@@ -1,0 +1,439 @@
+@import 'mixins';
+@import 'variables';
+
+// Блок навигации
+
+.navbar {
+  height: 160px;
+  padding: 30px 84px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.navbar__logo {
+  width: 304px;
+  height: 93px;
+  margin-left: 3px;
+  float: left;
+}
+
+.navbar__item {
+  width: 117px;
+  height: 32px;
+  margin-left: 70px;
+  margin-top: 39px;
+  background-color: $primaryWhite;
+  border: none;
+  color: #A6ABBD;
+  font-size: $navbarFontSize;
+  @include transition;
+
+  &:first-child {
+    margin-left: 65px;
+  }
+  &:last-child {
+    margin-left: 85px;
+  }
+  &:hover {
+    @include button
+  }
+}
+
+.navbar__button {
+  float: right;
+  margin-top: 39px;
+  width: 117px;
+  height: 32px;
+  font-size: $navbarFontSize;
+  @include button;
+}
+
+// 
+
+// Блок главного меню
+
+.main {
+  height: 947px;
+  background-image: -o-linear-gradient(45deg, #E2E2E2, $primaryWhite);
+  background-image: linear-gradient(45deg, #E2E2E2, $primaryWhite);
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 1px;
+  text-align: center;
+}
+
+.main__divider {
+  @include divider(183px, 75px);
+}
+
+.main__header {
+  @include header(22px auto 0, 1223px, 40px, 700, 47px, center);
+  text-transform: uppercase;
+}
+
+.main__layer_left {
+  @include layer(442.06px, 447.48px, 417px, 55deg);
+  left: 80px;
+}
+
+.main__layer_right {
+  @include layer(588.26px, 519.2px, 103px, 135deg);
+  right: -68px;
+}
+
+.main__berry {
+  position: absolute;
+  width: 436px;
+  height: 230px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 440px;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+          transform: translate(-50%);
+  background-image: url(../assets/berry.png);
+}
+
+.main__items_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+
+  .main__items_row {
+    -ms-flex-preferred-size: calc(100% / 2);
+        flex-basis: calc(100% / 2);
+
+    &:first-of-type {
+      margin-top: 69px;
+      }
+
+    &:nth-of-type(2) {
+      margin-top: 120px;
+    }
+
+    &:nth-of-type(3) {
+      margin-top: 61px;
+    }
+  }
+}
+
+.main__item {
+  position: relative;
+  z-index: 1;
+  max-width: 176px;
+  text-align: center;
+  display: inline-block;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+
+  svg path, svg rect, svg circle{
+    @include transition;
+  }
+
+  svg {
+    &:hover path, &:hover rect, &:hover circle{
+      stroke: $primaryGreen;
+    }
+  }
+}
+
+.last {
+  max-width: 199px;
+}
+
+.first {
+  margin-right: 109px;
+}
+
+.second {
+  margin-right: 488px;
+}
+
+.third {
+  margin-right: 102px;
+}
+
+// 
+
+// Блок комментариев
+
+.split {
+  height: 830px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+
+  .split__comments {
+    height: 100%;
+    width: 50%;
+    background-color: #F5F5F5;
+  }
+
+  .divider {
+    @include divider(184px, 101px);
+  }
+
+  .split__comments_header {
+    @include header(18px auto 0, 814px, 40px, 700, 47px, center);
+  }
+
+  .split__comments_comment.big { 
+    margin: 49px 83px 110px 130px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    img {
+      float: left;
+      width: 187px;
+      height: 187px;
+      margin-right: 71px;
+    }
+
+    .split__comments_comment.comment {
+      position: relative;
+
+      .split__comments_comment.text {
+        @include text(16px, 400, 24px);
+        max-width: -webkit-max-content;
+        max-width: -moz-max-content;
+        max-width: max-content;
+        
+        p {
+          font-weight: 700;
+          margin-top: 16px;
+        }
+      }
+
+      .split__comments_comment.nickname {
+        @include text(16px, 700, 19px);
+        margin-top: 16px;
+      }
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: -57px;
+        content: url("../assets/quotesOpen.svg");
+      }
+      &::after {
+        position: absolute;
+        bottom: -13px;
+        right: -20px;
+        content: url("../assets/quotesClose.svg");
+      }
+    }
+  }
+
+  .split__comments_comment.container {
+    width: calc(100% - 233px);
+    margin: 0 103px 0 130px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    .split__comments_comment.comment {
+      width: calc(50% - 15px);
+      
+      &:first-of-type {
+        margin-right: 30px;
+      }
+
+      .split__comments_comment.text {
+        @include text(16px, 400, 24px);
+        max-width: -webkit-max-content;
+        max-width: -moz-max-content;
+        max-width: max-content;
+
+        img {
+          float: right;
+          width: 97px;
+          height: 97px;
+          padding-bottom: 50px;
+        }
+      }
+
+      .nickname {
+        margin-top: 16px;
+        font-weight: 700;
+      }
+
+      .split__comments_comment.right {
+        img {
+          float: left;
+        }
+      }
+    }
+  }
+}
+
+// 
+
+// Блок вопросов и ответов
+
+.split__qna {
+  height: 100%;
+  width: 50%;
+  background-color: #F8FBFF;
+}
+
+.split__qna_header {
+  @include header(12px auto 0, 426px, 40px, 700, 47px, center)
+}
+
+.split__qna_text {
+  @include text(16px, 400, 24px);
+  text-align: center;
+  margin-top: 20px;
+}
+
+.split__qna_container {
+  width: 704px;
+  height: 500px;
+  margin: 21px 0 0 89px;
+
+}
+
+.split__qna_container_element {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+
+  img {
+    margin-right: 24px;
+  }
+
+  h2 {
+    @include text(24px, 700, 28px);
+    @include transition;
+  }
+
+  svg {
+    margin-left: auto;
+    @include transition;
+  }
+}
+
+.split__qna_container_element_content {
+  @include text(16px, 400, 19px);
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  max-height: -webkit-min-content;
+  max-height: -moz-min-content;
+  max-height: min-content;
+  margin-left: 64px;
+}
+
+.split__qna_container_element_divider {
+  position: relative;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  margin: 16px 0 12px;
+  height: 1px;
+  background-color: #E7EBF0;
+  @include transition;
+}
+
+.disabled {
+
+  .split__qna_container_element_content {
+    -webkit-animation: anim 500ms;
+            animation: anim 500ms;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;    
+   
+    @-webkit-keyframes anim {
+      0% {
+        margin-top: 20px;
+        height: 2.5em;
+        opacity: 1;
+      }
+      100% {
+        margin: 0;
+        height: 0;
+        opacity: 0;
+      }
+    }    
+   
+    @keyframes anim {
+      0% {
+        margin-top: 20px;
+        height: 2.5em;
+        opacity: 1;
+      }
+      100% {
+        margin: 0;
+        height: 0;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.active {
+  h2 {
+    color: $primaryGreen;
+  }
+
+  svg {
+    rotate: 180deg;
+  }
+  
+  .split__qna_container_element_content {
+    -webkit-animation: ani 500ms;
+            animation: ani 500ms;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+  }
+
+  @-webkit-keyframes ani {
+    0% {
+      margin: 0;
+      height: 0px;
+      opacity: 0;
+    }
+    100% {
+      margin-top: 20px;
+      height: 2.5em;
+      opacity: 1;
+    }
+  }
+
+  @keyframes ani {
+    0% {
+      margin: 0;
+      height: 0px;
+      opacity: 0;
+    }
+    100% {
+      margin-top: 20px;
+      height: 2.5em;
+      opacity: 1;
+    }
+  }
+}
